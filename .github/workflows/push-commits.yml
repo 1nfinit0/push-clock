@@ -11,6 +11,9 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3
+        with:
+          # Usar el token de acceso personal
+          token: ${{ secrets.PA_TOKEN }}
 
       - name: Set up Git
         run: |
