@@ -37,6 +37,7 @@ jobs:
 
       - name: Push changes multiple times
         run: |
+          git pull --rebase origin master
           for i in $(seq 1 ${{ env.count }}); do
             git push origin master
           done
