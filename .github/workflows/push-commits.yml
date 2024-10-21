@@ -35,9 +35,10 @@ jobs:
           git commit -m "Auto-commit"
           echo "Commits made: ${{ env.count }}"
 
+      - name: Pull changes
+        run: |
+          git pull --rebase origin master  
+
       - name: Push changes multiple times
         run: |
-          git pull --rebase origin master
-          for i in $(seq 1 ${{ env.count }}); do
-            git push origin master
-          done
+          git push origin master
