@@ -29,15 +29,15 @@ jobs:
         run: |
           echo "count=$(cat count.txt)" >> $GITHUB_ENV
 
+      - name: Pull changes
+        run: |
+          git pull --rebase origin master  
+
       - name: Add and commit changes
         run: |
           git add .
           git commit -m "Auto-commit"
           echo "Commits made: ${{ env.count }}"
-
-      - name: Pull changes
-        run: |
-          git pull --rebase origin master  
 
       - name: Push changes multiple times
         run: |
