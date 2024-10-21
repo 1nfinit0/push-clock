@@ -20,6 +20,10 @@ jobs:
           git config --global user.name "1nfinit0"
           git config --global user.email "noggnzzz@gmail.com"
 
+      - name: Pull changes
+        run: |
+          git pull --rebase origin master  
+
       - name: Run random count script
         run: |
           python random_push.py
@@ -28,10 +32,6 @@ jobs:
         id: read_count
         run: |
           echo "count=$(cat count.txt)" >> $GITHUB_ENV
-
-      - name: Pull changes
-        run: |
-          git pull --rebase origin master  
 
       - name: Add and commit changes
         run: |
